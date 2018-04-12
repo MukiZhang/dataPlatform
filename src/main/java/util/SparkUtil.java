@@ -30,7 +30,10 @@ public class SparkUtil {
             String master = properties.getProperty("spark_master_ip");
             String port = properties.getProperty("spark_port");
 //            SparkConf conf = new SparkConf().setAppName("data-platform").setMaster("spark://" + master + ":" + port);
-            SparkConf conf = new SparkConf().setAppName("data-platform").setMaster("local");
+            //SparkConf conf = new SparkConf().setAppName("data-platform").setMaster("local");
+            SparkConf conf = new SparkConf().setAppName("data-platform").setMaster("local")
+                    .set("spark.sql.warehouse.dir", "file:///C:/Users/Muki/workspace/GitHub/dataPlatform/spark-warehouse/")
+                    .set("spark.local.dir","C:\\Users\\Muki\\workspace\\GitHub\\dataPlatform\\temp");
             spark = SparkSession.builder().config(conf).getOrCreate();
 //            spark.sparkContext().addJar("jars/mysql-connector-java-5.1.46.jar");
         }catch (Exception e) {
@@ -50,7 +53,6 @@ public class SparkUtil {
             throw new FileNotFoundException(path + " not found on local!");
         return spark.read().format(dataFormat).load(path);
     }
-
 
     static public Dataset readFromSQL(String sql) {
         return spark.sql(sql);

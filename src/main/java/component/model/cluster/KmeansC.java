@@ -27,7 +27,7 @@ public class KmeansC extends Component {
             outputs.get("model").setModel(model_);
         if(outputs.containsKey("vectors"))
             outputs.get("vectors").setVectors(vectors);
-        if(path != null && path.equals("")) {
+        if(path != null && !path.equals("")) {
             save();
         }
     }

@@ -28,6 +28,7 @@ public class MysqlData extends Component {
         reader.option("user", username);
         reader.option("password", password);
 
+        System.out.println(url);
         Dataset<Row> dataset = reader.load();
 //        for (String v : dataset.columns())
 //            System.out.println(v);

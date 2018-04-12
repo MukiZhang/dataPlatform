@@ -234,7 +234,7 @@
       },
       "inputCol": {
         "type": "String",
-        "value": "shohin_bunrui"
+        "value": "weibo_content"
       },
       "outputCol": {
         "type": "String",
@@ -258,7 +258,7 @@
     "parameters": {
       "ip": {
         "type": "String",
-        "value": "localhost"
+        "value": "10.109.247.63"
       },
       "port": {
         "type": "int",
@@ -266,7 +266,7 @@
       },
       "database": {
         "type": "String",
-        "value": "shop"
+        "value": "weibo"
       },
       "username": {
         "type": "String",
@@ -274,11 +274,11 @@
       },
       "password": {
         "type": "String",
-        "value": "ma0722"
+        "value": "hadoop"
       },
       "sql": {
         "type": "String",
-        "value": "(SELECT shohin_bunrui from shohin1) as tmp"
+        "value": "(SELECT weibo_content from weibo_original limit 10) as tmp"
       }
     },
     "input": {

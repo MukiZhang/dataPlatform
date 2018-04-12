@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class GMMC extends Component {
 
-    private GaussianMixture model = new GaussianMixture();;
+    private GaussianMixture model = new GaussianMixture();
     private GaussianMixtureModel model_;
 
     private String path;
@@ -24,7 +24,8 @@ public class GMMC extends Component {
         model_ = model.fit(dataset);
         if(outputs.containsKey("model"))
             outputs.get("model").setModel(model_);
-        if(path != null && path.equals("")) {
+        System.out.println(path);
+        if(path != null) {
             save();
         }
     }

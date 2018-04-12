@@ -40,9 +40,10 @@ public class TokenizerC extends Component implements Serializable{
                 return sb.toString();
             }
         }, encoder);
-        dataset.show();
+        Dataset newDataset = data.withColumn(outputCol, data.col("value"));
+        newDataset.show();
         if(outputs.containsKey("data"))
-            outputs.get("data").setDataset(data);
+            outputs.get("data").setDataset(newDataset);
     }
 
     public void setParameters(JSONObject parameters) throws JSONException {
